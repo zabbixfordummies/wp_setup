@@ -36,10 +36,10 @@ do
   echo "Por favor, proporciona un nombre de dominio valido o subdominio para continuar, para cancelar presiona Ctrl+C"
  else
   a=1
+  sed -i 's/localhost;/$dom;/g'  /etc/nginx/conf.d/wordpress.conf
 fi
 done
-sed -i "s/\localhost/$dom/g"  
-sed -i 's/localhost;/$dom;/g'  /etc/nginx/conf.d/wordpress.conf
+
 service nginx restart
 
 cp /etc/baknet/.bashrc /root
